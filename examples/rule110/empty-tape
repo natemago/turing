@@ -1,0 +1,9 @@
+Rule 101
+INFINITE_TAPE: true
+TAPE: -
+DEAFULT_TAPE_SYMBOL: -
+TAPE_POSITION: 0
+START_STATE: A
+-= A: +, 1,B | B: #,-1,A
++= A: #,-1,A | B: #, 1,B
+#= A: +,-1,A | B: -, 1,A
