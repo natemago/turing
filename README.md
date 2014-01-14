@@ -71,6 +71,44 @@ Here is a working example of a Turing machine - 2 states (A,B), 3 symbols (+,-,#
 	+= A: #,-1,A | B: #, 1,B
 	#= A: +,-1,A | B: -, 1,A
 
+
+Machine Output:
+----------------
+
+The machine will output a header before it starts the computation itself.
+
+The header looks like this:
+
+	Machine: Rule 101
+	Symbols: [#, +, -]
+	States: [A, B]
+	Start State: A
+	Blank symbol: -
+	Rules table:
+	+--------+---------------+---------------+
+	|        |              A|              B|
+	+--------+---------------+---------------+
+	|       #|        +, L, A|        -, R, A|
+	+--------+---------------+---------------+
+	|       +|        #, L, A|        #, R, B|
+	+--------+---------------+---------------+
+	|       -|        +, R, B|        #, L, A|
+	+--------+---------------+---------------+
+
+As you can see, the machine name, symbols, possible states, the initial state, blank (default) symbol, and the rules table will be printed out.
+Then, for each iteration (including the inital state) exactly one line is printed in the following format:
+
+	{iteration number}. ({current_state}) {tape dump}
+where the <b>{tape_dump}</b> looks like this:
+
+	[{cell0 symbol}][{cell1 symbol}]...>{the head is currently positioned here}<...[{cellN symbol}]
+	
+for example the following line:
+
+	59. (A) [-][+][+][#][+][#][+][#][#][#][-]>#<[+][#][+][-]
+is the 59th iteration; the state of the machine at that point is A and the head points at the 11th cell (0-based) at a # (>#<).
+
+
 Examples:
 ----------------
 
